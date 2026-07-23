@@ -1,0 +1,385 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+}
+
+/* Área central onde o JS injeta as seções/telas */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* CLASSE UTILITÁRIA PARA OCULTAR TELAS */
+.escondido {
+    display: none !important;
+}
+
+/* ==========================================================================
+   2. HEADER
+   ========================================================================== */
+header {
+    background-color: rgba(51, 71, 176, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+}
+
+.sair {
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sair span {
+    color: white;
+    font-size: 28px;
+    padding: 8px;
+}
+
+/* ==========================================================================
+   3. ESTRUTURA BASE DAS TELAS
+   ========================================================================== */
+.tela {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tela h2 {
+    color: rgba(51, 71, 176, 1);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* ==========================================================================
+   4. TELA 1: SELEÇÃO DE CURSOS (Com as 2 imagens)
+   ========================================================================== */
+#tela-inicio {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.conteudo-inicio {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 350px;
+}
+
+.conteudo-inicio h2 {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.ilustracao {
+    max-width: 100%;
+    height: auto;
+}
+
+.estudante {
+    max-width: 250px;
+    height: auto;
+}
+
+.botoes-cursos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn-curso {
+    background-color: rgba(51, 71, 176, 1);
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-curso:hover {
+    background-color: #25358a;
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   5. TELA 2: TURMAS, FILTROS E GRID DE ALUNOS
+   ========================================================================== */
+.barra-filtros {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.legenda {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.item-legenda {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.cor-indicador {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.item-legenda.cursando .cor-indicador {
+    background-color: rgba(51, 71, 176, 1);
+}
+
+.item-legenda.finalizado .cor-indicador {
+    background-color: #E5B22A;
+}
+
+.filtro-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(51, 71, 176, 1);
+    font-weight: bold;
+}
+
+.filtro-status select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(51, 71, 176, 1);
+    background-color: white;
+    color: rgba(51, 71, 176, 1);
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+.grid-alunos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.card-aluno {
+    background-color: rgba(51, 71, 176, 1);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.card-aluno:hover {
+    transform: translateY(-5px);
+}
+
+.card-aluno.finalizado {
+    background-color: #E5B22A;
+}
+
+.card-aluno img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+/* ==========================================================================
+   6. TELA 3: DETALHES DO ALUNO E GRÁFICO DE NOTAS
+   ========================================================================== */
+#detalhes-aluno-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.perfil-aluno {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 250px;
+    text-align: center;
+}
+
+.perfil-aluno img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(51, 71, 176, 1);
+}
+
+.perfil-aluno h3 {
+    color: rgba(51, 71, 176, 1);
+    font-size: 1.5rem;
+}
+
+.materias-aluno {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 280px;
+}
+
+.linha-materia {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info-materia {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    color: #333;
+}
+
+.barra-container {
+    width: 100%;
+    height: 14px;
+    background-color: #e0e0e0;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.barra-progresso {
+    height: 100%;
+    border-radius: 7px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Cores das barras de nota */
+.barra-progresso.aprovado {
+    background-color: rgba(51, 71, 176, 1);
+}
+
+.barra-progresso.exame {
+    background-color: #E5B22A;
+}
+
+.barra-progresso.reprovado {
+    background-color: #C13333;
+}
+
+/* ==========================================================================
+   7. FOOTER
+   ========================================================================== */
+footer {
+    background-color: rgba(51, 71, 176, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+.contato-info {
+    font-style: normal;
+}
+
+.contato-info div {
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.contato-info a {
+    color: white;
+    padding-left: 15px;
+    text-decoration: none;
+}
+
+.copyright {
+    font-size: 18px;
+}
+
+.redes-sociais img {
+    padding: 10px;
+}
+
+/* ==========================================================================
+   8. RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
+@media (max-width: 768px) {
+    #tela-inicio {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .conteudo-inicio {
+        align-items: center;
+    }
+
+    .conteudo-inicio h2 {
+        text-align: center;
+    }
+
+    header, footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    #detalhes-aluno-container {
+        flex-direction: column;
+        padding: 15px;
+    }
+}

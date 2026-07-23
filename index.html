@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="./app.js"></script>
+    <title>Lion School</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./img/logo.png" alt="Lion School - Logotipo">
+        </div>
+        <button class="sair" type="button">
+            <img src="./img/back.png" alt="Ícone voltar/sair">
+            <span>Sair</span>
+        </button>
+    </header>
+
+    <main>
+        <!-- TELA 1: SELEÇÃO DE CURSOS -->
+        <section id="tela-inicio" class="tela">
+            <div class="conteudo-inicio">
+                <h2>Escolha um curso para gerenciar</h2>
+                <img src="./img/devices.png" alt="Ilustração de computadores" class="ilustracao">
+            </div>
+
+            <img src="./img/studant.png" alt="Ilustração de estudante" class="estudante">
+
+            <!-- Os botões dos cursos serão injetados aqui via JS -->
+            <div class="botoes-cursos"></div>
+        </section>
+
+        <!-- TELA 2: LISTA DE ALUNOS (Oculta por padrão) -->
+        <section id="tela-turma" class="tela escondido">
+            <h2 id="titulo-curso"><!-- Nome do curso entra via JS --></h2>
+
+            <!-- BARRA DE LEGENDA E FILTROS -->
+            <div class="barra-filtros">
+                <div class="legenda">
+                    <span class="item-legenda cursando">
+                        <span class="cor-indicador"></span> Cursando
+                    </span>
+                    <span class="item-legenda finalizado">
+                        <span class="cor-indicador"></span> Finalizado
+                    </span>
+                </div>
+
+                <div class="filtro-status">
+                    <label for="select-status">Status:</label>
+                    <select id="select-status">
+                        <option value="todos">Todos</option>
+                        <option value="cursando">Cursando</option>
+                        <option value="finalizado">Finalizado</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Grid onde o JS insere os cards dos alunos -->
+            <div class="grid-alunos" id="grid-alunos"></div>
+        </section>
+
+        <!-- TELA 3: DETALHES DO ALUNO (Oculta por padrão) -->
+        <section id="tela-aluno" class="tela escondido">
+            <div id="detalhes-aluno-container">
+                <!-- Informações/gráficos do aluno entram aqui via JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <address class="contato-info">
+            <div>
+                <img src="./img/phone.png" alt="Telefone">
+                <a href="tel:11477744700">(11) 47774-4700</a>
+            </div>
+            <div>
+                <img src="./img/icon-email.png" alt="E-mail">
+                <a href="mailto:lionschool@gmail.com">lionschool@gmail.com</a>
+            </div>
+            <div>
+                <img src="./img/location.png" alt="Endereço">
+                <a href="https://www.google.com.br/maps/place/SENAI+de+Jandira+-+Professor+Vicente+Amato/@-23.5286063,-46.9005452,17z/data=!3m1!4b1!4m6!3m5!1s0x94cf0154039cb55b:0xadf34a919f156950!8m2!3d-23.5286112!4d-46.8979703!16s%2Fg%2F1q5gqxt69?hl=pt-BR&entry=ttu&g_ep=EgoyMDI2MDcyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                    Rua tcc, 211, Centro, Jandira
+                </a>
+            </div>
+        </address>
+
+        <div class="copyright">
+            <p>Copyright © 2026 | Gabriel Melo</p>
+        </div>
+
+        <nav class="redes-sociais">
+            <a href="https://www.youtube.com" target="_blank"><img src="./img/youtube.png" alt="YouTube Lion School"></a>
+            <a href="https://www.x.com" target="_blank"><img src="./img/twitter.png" alt="Twitter Lion School"></a>
+            <a href="https://www.instagram.com" target="_blank"><img src="./img/instagram.png" alt="Instagram Lion School"></a>
+            <a href="https://www.facebook.com" target="_blank"><img src="./img/facebook.png" alt="Facebook Lion School"></a>
+        </nav> 
+    </footer>
+</body>
+</html>
