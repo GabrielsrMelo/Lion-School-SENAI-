@@ -24,7 +24,7 @@ async function carregarCursos() {
         const cursos = await response.json();
 
         const containerBotoes = document.querySelector('.botoes-cursos');
-        
+
         while (containerBotoes.firstChild) {
             containerBotoes.removeChild(containerBotoes.firstChild);
         }
@@ -32,8 +32,24 @@ async function carregarCursos() {
         cursos.forEach(curso => {
             const btn = document.createElement('button');
             btn.classList.add('btn-curso');
-            btn.textContent = curso.sigla;
-            
+
+            const img = document.createElement('img');
+
+            if(curso.sigla === "DS"){
+                img.src = "./img/code.png";
+            } else if (curso.sigla === "RDS"){
+                img.src = "./img/redes.png"
+            }
+
+            img.alt = curso.nome
+
+
+            const texto = document.createElement('span');
+            texto.textContent = curso.sigla;
+
+            btn.appendChild(img);
+            btn.appendChild(texto);
+
             btn.addEventListener('click', () => {
                 carregarAlunosPorCurso(curso.id, curso.nome);
             });
@@ -56,7 +72,7 @@ async function carregarAlunosPorCurso(cursoId, nomeCurso, statusFiltro = 'todos'
         telaInicio.classList.add('escondido');
         telaAluno.classList.add('escondido');
         telaTurma.classList.remove('escondido');
-        
+
         telaAtual = 'turma';
         tituloCurso.textContent = nomeCurso;
         document.querySelector('.sair span').textContent = "Voltar";
@@ -123,15 +139,13 @@ async function carregarDetalhesAluno(alunoId) {
     try {
         const response = await fetch(`${API_URL}/alunos/${alunoId}`);
         const aluno = await response.json();
-        
-        // Alterna a exibição das telas
+
         telaTurma.classList.add('escondido');
         telaAluno.classList.remove('escondido');
         telaAtual = 'aluno';
 
         const container = document.getElementById('detalhes-aluno-container');
-        
-        // Limpa visualização anterior
+
         while (container.firstChild) {
             container.removeChild(container.firstChild);
         }
@@ -180,25 +194,27 @@ async function carregarDetalhesAluno(alunoId) {
 
             const barraProgresso = document.createElement('div');
             barraProgresso.classList.add('barra-progresso');
-            
-            // Ajusta a largura proporcional à nota (ex: 85%)
+
+            // Ajusta a largura proporcional à nota
             barraProgresso.style.width = `${item.valor}%`;
 
-            // Atribui cor baseada no valor numérico da nota
+            // Define a cor da barra conforme a nota
             const notaValor = Number(item.valor);
+
             if (notaValor >= 70) {
-                barraProgresso.classList.add('aprovado');
+                barraProgresso.style.backgroundColor = "#3347b0";
+                barraProgresso.style.boxShadow = "0 0 5px #3347b0, 0 0 10px #3347b0, 0 0 20px #3347b0";
             } else if (notaValor >= 50) {
-                barraProgresso.classList.add('exame');
+                barraProgresso.style.backgroundColor = "#F1C40F"; 
+                barraProgresso.style.boxShadow = "0 0 5px #F1C40F, 0 0 10px #F1C40F, 0 0 20px #F1C40F"
             } else {
-                barraProgresso.classList.add('reprovado');
+                barraProgresso.style.backgroundColor = "#E74C3C"; 
+                barraProgresso.style.boxShadow = "0 0 5px #E74C3C, 0 0 10px #E74C3C, 0 0 20px #E74C3C"
             }
 
             barraContainer.appendChild(barraProgresso);
-
             linhaMateria.appendChild(infoMateria);
             linhaMateria.appendChild(barraContainer);
-
             materiasDiv.appendChild(linhaMateria);
         });
 

@@ -113,21 +113,42 @@ header {
     gap: 20px;
 }
 
-.btn-curso {
-    background-color: rgba(51, 71, 176, 1);
+.btn-curso{
+    background: rgba(51,71,176,1);
     color: white;
-    font-size: 1.8rem;
-    font-weight: bold;
-    padding: 20px 40px;
+    width: 240px;
+    padding: 18px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
     border: none;
-    border-radius: 12px;
+    border-radius: 15px;
     cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
+
+    font-size: 32px;
+    font-weight: bold;
+
+    transition: .3s;
+
+    box-shadow: 10px 10px 0px rgba(51, 72, 176, 0.422);
 }
 
-.btn-curso:hover {
-    background-color: #25358a;
+.btn-curso:hover{
     transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(51,71,176,.5);
+}
+
+.btn-curso img{
+    width: 82px;
+    height: 82px;
+    object-fit: contain;
+}
+
+.btn-curso span{
+    font-size: 30px;
 }
 
 /* ==========================================================================
@@ -293,15 +314,15 @@ header {
 .barra-container {
     width: 100%;
     height: 14px;
-    background-color: #e0e0e0;
-    border-radius: 7px;
+    background: #ddd;
+    border-radius: 10px;
     overflow: hidden;
 }
 
 .barra-progresso {
     height: 100%;
-    border-radius: 7px;
-    transition: width 0.5s ease-in-out;
+    border-radius: 10px;
+    transition: width .4s;
 }
 
 /* Cores das barras de nota */
@@ -381,5 +402,8 @@ footer {
     #detalhes-aluno-container {
         flex-direction: column;
         padding: 15px;
+    }
+    .ilustracao{
+        display: none;
     }
 }
