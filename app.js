@@ -37,7 +37,7 @@ async function carregarCursos() {
 
             if(curso.sigla === "DS"){
                 img.src = "./img/code.png";
-            } else if (curso.sigla === "RDS"){
+            } else if (curso.sigla === "REDES"){
                 img.src = "./img/redes.png"
             }
 
@@ -204,7 +204,7 @@ async function carregarDetalhesAluno(alunoId) {
             if (notaValor >= 70) {
                 barraProgresso.style.backgroundColor = "#3347b0";
                 barraProgresso.style.boxShadow = "0 0 5px #3347b0, 0 0 10px #3347b0, 0 0 20px #3347b0";
-            } else if (notaValor >= 50) {
+            } else if (notaValor >= 50 && notaValor < 70) {
                 barraProgresso.style.backgroundColor = "#F1C40F"; 
                 barraProgresso.style.boxShadow = "0 0 5px #F1C40F, 0 0 10px #F1C40F, 0 0 20px #F1C40F"
             } else {
