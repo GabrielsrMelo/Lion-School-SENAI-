@@ -94,9 +94,9 @@ header {
 
 .conteudo-inicio h2{
     color: #000000; /* Preto */
-    font-size: 2rem;
-    font-weight: 300;
-    width: 300px;
+    font-size: 3.5rem;
+    font-weight: 100;
+    width: 500px;
 }
 
 .conteudo-inicio h2 span{
@@ -397,6 +397,9 @@ footer {
 
     .conteudo-inicio h2 {
         text-align: center;
+        font-size: 2.5rem;
+        width: 400px;
+
     }
 
     footer {
