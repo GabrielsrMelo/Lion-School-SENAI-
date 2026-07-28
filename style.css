@@ -96,6 +96,7 @@ header {
     color: #000000; /* Preto */
     font-size: 2rem;
     font-weight: 300;
+    width: 300px;
 }
 
 .conteudo-inicio h2 span{
@@ -121,7 +122,8 @@ header {
 .btn-curso{
     background: rgba(51,71,176,1);
     color: white;
-    width: 240px;
+    width: 250px;
+    height: 200px;
     padding: 18px 25px;
 
     display: flex;
@@ -129,8 +131,7 @@ header {
     justify-content: center;
     gap: 18px;
 
-    border: none;
-    border-radius: 15px;
+    border: 1px solid black;
     cursor: pointer;
 
     font-size: 32px;
@@ -416,7 +417,7 @@ footer {
 
     .contato-info div{
         padding:13px
-    }
+    }   
 
     .redes-sociais{
         order: 2;
@@ -437,6 +438,11 @@ footer {
 
     .btn-curso img{
         display: none;
+    }
+
+    .btn-curso{
+        height: 150px;
+        width: 150px;
     }
     .sair span{
         display: none;
